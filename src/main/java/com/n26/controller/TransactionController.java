@@ -21,7 +21,7 @@ public class TransactionController {
 
     @PostMapping(value = "/transactions")
     public ResponseEntity postTransaction(@RequestBody @Valid Transaction transaction, Errors errors) {
-//        if (errors.hasErrors()) return new ResponseEntity(DEFAULT_EXCEPTION_HTTP_STATUS);
+        if (errors.hasErrors()) return new ResponseEntity(DEFAULT_EXCEPTION_HTTP_STATUS);
 
         transactionService.addTransaction(transaction);
         return new ResponseEntity(HttpStatus.CREATED);
